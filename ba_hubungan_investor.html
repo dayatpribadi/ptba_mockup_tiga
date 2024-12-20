@@ -539,7 +539,10 @@
 
                             <!--button start-->
                             <li class="nav-item header-nav-last-item d-flex align-items-center">
-                                <a href="#">ENG</a>
+                                <a href="#" id="flag-switch">
+                                    <img src="assets/img/en.svg" alt="English" id="flag-img"
+                                        style="width: 30px !important; border: 1px solid silver;">
+                                </a>
                             </li>
                             <!--button end-->
                         </ul>
@@ -866,6 +869,25 @@
             // Tampilkan konten pertama saat halaman dimuat
             $('.tabs a.active').trigger('click');
 
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#flag-switch').click(function (e) {
+                e.preventDefault(); // Mencegah perilaku default dari elemen <a>
+
+                // Ambil elemen gambar
+                const flagImg = $('#flag-img');
+
+                // Periksa bendera saat ini dan ubah ke bendera yang lain
+                if (flagImg.attr('src') === 'assets/img/en.svg') {
+                    flagImg.attr('src', 'assets/img/in.svg');
+                    flagImg.attr('alt', 'Indonesia');
+                } else {
+                    flagImg.attr('src', 'assets/img/en.svg');
+                    flagImg.attr('alt', 'English');
+                }
+            });
         });
     </script>
 </body>
